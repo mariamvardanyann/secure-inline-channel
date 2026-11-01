@@ -15,9 +15,9 @@
 
 ```mermaid
 flowchart LR
-    A["PC1<br/>10.0.1.2"] --> B["Device1<br/>10.0.1.1 / 10.0.12.1"]
-    B -->|"protected native TCP/IPv4"| C["Device2<br/>10.0.12.2 / 10.0.2.1"]
-    C --> D["PC2<br/>10.0.2.2"]
+    PC1["PC1"] -->|"Plain TCP"| D1["Device1: encrypt"]
+    D1 -->|"TCP headers + ciphertext + tag"| D2["Device2: verify and decrypt"]
+    D2 -->|"Restored TCP"| PC2["PC2"]
 ```
 
 The devices are routers, not TCP proxies. PC1 and PC2 keep one normal end-to-end
