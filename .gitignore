@@ -1,0 +1,8 @@
+/bin/
+/build/
+*.o
+*.gcda
+*.gcno
+*.zip
+*.pcap
+*.log
